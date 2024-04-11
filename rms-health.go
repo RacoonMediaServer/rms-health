@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
+	"github.com/RacoonMediaServer/rms-health/internal/config"
 	"github.com/RacoonMediaServer/rms-packages/pkg/service/servicemgr"
-	"github.com/RacoonMediaServer/rms-template/internal/config"
-	"github.com/RacoonMediaServer/rms-template/internal/db"
 	"github.com/urfave/cli/v2"
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/logger"
@@ -15,7 +14,7 @@ import (
 
 var Version = "v0.0.0"
 
-const serviceName = "rms-template"
+const serviceName = "rms-health"
 
 func main() {
 	logger.Infof("%s %s", serviceName, Version)
@@ -52,11 +51,6 @@ func main() {
 	}
 
 	_ = servicemgr.NewServiceFactory(service)
-
-	_, err := db.Connect(config.Config().Database)
-	if err != nil {
-		logger.Fatalf("Connect to database failed: %s", err)
-	}
 
 	// регистрируем хендлеры
 	//if err := rms_bot.RegisterRmsBotHandler(service.Server(), bot); err != nil {

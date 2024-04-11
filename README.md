@@ -1,2 +1,4 @@
-# rms-template
-Template repository for microservices
+# rms-health
+Health monitoring service
+
+
