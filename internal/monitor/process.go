@@ -53,6 +53,8 @@ func (m *Monitor) runCheck() {
 func (m *Monitor) processReport(report *health.Report) {
 	if report.Status != health.Report_Ok {
 		logger.Errorf("Report. Status: %s, Failures: %+v", report.Status.String(), report.Failures)
+	} else {
+		logger.Debugf("Report. Status: %s", report.Status)
 	}
 	if m.ReportChan != nil {
 		m.ReportChan <- report

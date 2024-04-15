@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/RacoonMediaServer/rms-health/internal/checkers"
 	"github.com/RacoonMediaServer/rms-health/internal/config"
 	"github.com/RacoonMediaServer/rms-health/internal/monitor"
 	"github.com/RacoonMediaServer/rms-health/internal/service"
@@ -56,11 +57,13 @@ func main() {
 
 	cfg := config.Config()
 	healthService := service.New(pubsub.NewPublisher(microService))
+	serviceFactory := servicemgr.NewServiceFactory(microService)
 
 	mon := monitor.Monitor{
-		Factory:       servicemgr.NewServiceFactory(microService),
+		Factory:       serviceFactory,
 		CheckInterval: time.Duration(cfg.CheckIntervalMin) * time.Second,
 		ReportChan:    healthService.ReportChan(),
+		Checkers:      checkers.New(serviceFactory, cfg),
 	}
 	mon.Start()
 

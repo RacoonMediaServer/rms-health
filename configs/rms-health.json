@@ -1,6 +1,9 @@
 {
   "check-interval-min": 1,
   "required-services": [
-    "cctv", "library"
-  ]
+    "cctv", "bot-client", "transcoder", "backup", "notifier"
+  ],
+  "cctv": {
+    "enabled": true
+  }
 }
