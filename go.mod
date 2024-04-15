@@ -3,7 +3,7 @@ module github.com/RacoonMediaServer/rms-health
 go 1.20
 
 require (
-	github.com/RacoonMediaServer/rms-packages v1.13.4
+	github.com/RacoonMediaServer/rms-packages v1.13.6
 	github.com/go-micro/plugins/v4/registry/etcd v1.2.0
 	github.com/urfave/cli/v2 v2.3.0
 	go-micro.dev/v4 v4.9.0

@@ -4,6 +4,8 @@ import "github.com/RacoonMediaServer/rms-packages/pkg/configuration"
 
 // Configuration represents entire service configuration
 type Configuration struct {
+	CheckIntervalMin uint     `json:"check-interval-min"`
+	RequiredServices []string `json:"required-services"`
 }
 
 var config Configuration

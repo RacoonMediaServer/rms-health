@@ -1,2 +1,6 @@
 {
+  "check-interval-min": 1,
+  "required-services": [
+    "cctv", "library"
+  ]
 }
