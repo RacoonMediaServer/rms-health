@@ -14,7 +14,7 @@ import (
 )
 
 const maxPackets = 50
-const streamTimeout = 15 * time.Second
+const streamTimeout = 20 * time.Second
 
 type cameraStreams struct {
 	cam       *rms_cctv.Camera

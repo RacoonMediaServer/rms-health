@@ -1,6 +1,7 @@
 package checkers
 
 import (
+	"github.com/RacoonMediaServer/rms-health/internal/checkers/backup"
 	"github.com/RacoonMediaServer/rms-health/internal/checkers/cameras"
 	"github.com/RacoonMediaServer/rms-health/internal/checkers/containers"
 	"github.com/RacoonMediaServer/rms-health/internal/checkers/services"
@@ -14,5 +15,6 @@ func New(f servicemgr.ServiceFactory, cfg config.Configuration) []monitor.Checke
 		containers.New(f, cfg.RequiredServices),
 		cameras.New(f, cfg.Cctv.Enabled),
 		services.New(f, cfg.Cctv.Enabled, cfg.RequiredServices),
+		backup.New(f),
 	}
 }
